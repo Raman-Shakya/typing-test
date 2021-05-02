@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPING TEST</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.jsdelivr.net/npm/chart.js@3.2.0/dist/chart.min.js'></script>
+</head>
+<body style="font-family:'Comic Sans MS'">
+    <nav>
+        <h2>CHECK YOUR TYPING SPEED</h2>
+        <input type='checkbox' id='setngs' oninput="document.querySelector('#setngs').checked?0:reset()">
+        <label for='setngs'>
+            <div id='bars'><hr><hr><hr></div>
+        </label>
+        <div class="settings">
+            <h1>SETTINGS</h1>
+            <div id='words_selector'>
+                WORD LENGTH<br>
+                <input id='nwords' placeholder='number of words' type='number' min='1' oninput='changeWordLength()'>
+            </div>
+            <div id='fonts'>
+                CHOOSE FONT<br>
+                <input type='radio' id='TNR' name='fnts' oninput="fontChange('TNR')"><label for='TNR' id='tnr' style="font-family: 'Times New Roman', Times, serif" class='selectedFont'>Times New Roman</label><br>
+                <input type='radio' id='Hel' name='fnts' oninput="fontChange('Hel')"><label for='Hel' id='hel' style="font-family: 'Helvetica', Times, serif">Helvetica</label><br>
+                <input type='radio' id='CSa' name='fnts' oninput="fontChange('CSa')"><label for='CSa' id='csa' style="font-family: 'comic sans ms'">Comic Sans MS</label><br>                
+            </div>
+        </div>
+    </nav>
+    <div id='inswrapper'>
+        <h1 id='time'>00:00</h1>
+        <p id='paragraph'>
+            The example of painting can teach us not only how to manage our own work, but how to work together. A lot of the great art of the past is the work of multiple hands, though there may only be one name on the wall next to it in the museum.
+        </p>
+        <input id='inputarea' oninput=writing()>
+        <button onclick='reset()'>reset</button>
+    </div>
+    <div id='results'>
+        <div id='nonchart'>
+            <div id='wpmwrap'>
+                WPM
+                <h1 id='wpm'></h1>
+            </div>
+            <div id="wordWrap">
+                WORDS
+                <h1 id='words'></h1>
+            </div>
+            <div id='timer'>
+                TIME
+                <h1 id='time2'></h1>
+            </div>
+        </div>
+        <canvas id='chart' width=80% height=auto></canvas>
+    </div>
+    <footer>
+        <div>Made by Raman Shakya</div>
+        <div>©Copyright 2021</div> 
+    </footer>
+    <script src='words.js'></script>
+    <script src='script.js'></script>
+</body>
+</html>

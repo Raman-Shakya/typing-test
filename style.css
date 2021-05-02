@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    font-size: 1.2rem;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+#inswrapper{
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+p{
+    background: #cba;
+}
+#inputarea, p, button{
+    display: block;
+    margin:10px auto 10px auto;
+    width: 100%;
+    padding:20px;
+    outline:none;
+    border:1px solid black;
+    border-radius: 10px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;      
+}
+#inswrapper button{
+    margin-bottom: 10px;
+    width: 75px;
+    padding: 5px;
+    font-size: 0.7em;
+    float: right;
+}
+input:focus{
+    border:none;
+    outline:none;
+    border:1px solid black;
+}
+h1{text-align:center;}
+canvas{
+    display: block;
+}
+#time{
+    font-size: 100px;
+}
+#results{
+    display: none;
+    margin: 70px auto;
+    width: 80%;
+}
+#nonchart{
+    margin-top: 20px;
+    flex: auto;
+    min-width: 100px;
+}
+#nonchart div h1{
+    text-align:left;
+    font-size: 1.7em;
+}
+#nonchart div{
+    margin-top: 20px;
+    font-size: 0.6em;
+    font-weight: bold;
+}
+nav{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+nav #bars{
+    width: 30px;
+    float: right;
+    margin: 12px 20px;
+    cursor: pointer;
+}
+nav h2{
+    margin: 10px 20px;
+}
+nav #bars hr{
+    margin: 4px;
+    outline: none;
+    border: 2px solid black;
+    background: black;
+}
+#setngs{display:none;}
+#setngs:checked ~ .settings{
+    left: 0;
+    top: 0;
+}
+.settings{
+    position: fixed;
+    display: block;
+    left: -100%;
+    min-width: 200px;
+    max-width: 400px;
+    background: rgba(168, 27, 27, 0.976);
+    height: 100%;
+    top:0;
+    transition: 1s;
+}
+.settings div{
+    display: block;
+    margin: 10px;
+    font-size: 0.6em;
+}
+.settings h1{
+    margin: 30px;
+    font-size: 1.4em;
+}
+#nwords{
+    max-width: 300px;
+    font-size: 1.2em;
+    padding: 2px 5px;
+    margin: 10px;
+    border-radius: 2px;
+    border:none;
+}
+#nwords:focus{border:none;}
+input[type='radio']{
+    display: none;
+}
+#fonts label{
+    font-size: 1.2em;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.selectedFont{
+    text-decoration: underline;
+}
+@media (max-width: 500px){
+    #nonchart {
+        display: flex;
+        justify-content: space-between;
+    }
+    *{font-size: 17px;}
+    #time{
+        font-size: 50px;
+    }
+}
+
+footer{
+    position: fixed;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: rgba(114, 108, 79, 0.976);
+    bottom: 0;
+}
+footer div{
+    font-size: 0.5em;
+    border-top: 1px solid black;
+}
