@@ -1,15 +1,16 @@
 *{
     margin:0;
     font-size: 1.2rem;
-    /* font-family: Arial, Helvetica, sans-serif; */
 }
+body{overflow-x: hidden;}
 #inswrapper{
     display: block;
     width: 80%;
     margin: auto;
+    padding-bottom: 50px;
 }
 p{
-    background: #cba;
+    background: #cbaf95;
 }
 #inputarea, p, button{
     display: block;
@@ -30,7 +31,7 @@ p{
     font-size: 0.7em;
     float: right;
 }
-input:focus{
+#inuputarea:focus{
     border:none;
     outline:none;
     border:1px solid black;
@@ -62,46 +63,62 @@ canvas{
     font-weight: bold;
 }
 nav{
-    display: flex;
+    position: relative;
     width: 100%;
     height: 50px;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 nav #bars{
+    position: absolute;
+    z-index: 2;
     width: 30px;
+    top: 5px;
+    right: 20px;
     float: right;
-    margin: 12px 20px;
     cursor: pointer;
+    transition: 1s;
 }
 nav h2{
-    margin: 10px 20px;
-}
-nav #bars hr{
-    margin: 4px;
-    outline: none;
-    border: 2px solid black;
-    background: black;
+    display: block;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(#dcc,#ba9);
+    height: 50px;
+    padding: 10px 20px;
+    border-bottom: 1px solid black;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; 
 }
 #setngs{display:none;}
 #setngs:checked ~ .settings{
-    left: 0;
-    top: 0;
+    margin-top: 0;
+    transform: perspective(10em) rotateX(0deg);
+}
+#setngs:checked ~ .barWrapper #bars{
+    transform: rotate(180deg) translateX(20px) translateY(-10px);
+}
+#setngs:checked ~ .setng_else{
+    display: block;
 }
 .settings{
-    position: fixed;
-    display: block;
-    left: -100%;
-    min-width: 200px;
-    max-width: 400px;
-    background: rgba(168, 27, 27, 0.976);
-    height: 100%;
-    top:0;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    background: linear-gradient(#eee, #eed);
+    transform: perspective(10em) rotateX(90deg);
+    margin-top: -70px;
     transition: 1s;
+    padding: 10px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; 
 }
+.settings div{flex: 1;}
 .settings div{
     display: block;
-    margin: 10px;
     font-size: 0.6em;
 }
 .settings h1{
@@ -109,14 +126,13 @@ nav #bars hr{
     font-size: 1.4em;
 }
 #nwords{
-    max-width: 300px;
-    font-size: 1.2em;
+    width: 50px;
+    font-size: 1em;
     padding: 2px 5px;
-    margin: 10px;
     border-radius: 2px;
-    border:none;
+    border:1px solid black;
 }
-#nwords:focus{border:none;}
+#nwords:focus{border:1px solid black;}
 input[type='radio']{
     display: none;
 }
@@ -125,11 +141,23 @@ input[type='radio']{
     margin-left: 10px;
     cursor: pointer;
 }
+.setng_else{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100vh;
+}
 
-.selectedFont{
-    text-decoration: underline;
+#fontselector{
+    font-size: 1em;
+}
+#fontselector option{
+    font-size: 1em;
 }
 @media (max-width: 500px){
+    nav h2{
+        font-size: 0.8em;
+    }
     #nonchart {
         display: flex;
         justify-content: space-between;
@@ -139,16 +167,30 @@ input[type='radio']{
         font-size: 50px;
     }
 }
-
-footer{
-    position: fixed;
+.wrapper{
     display: block;
+    min-height:100vh;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;   
+    padding-bottom: 35px;
+}
+footer{
+    display: block;
+    position: relative;
+    z-index: 2;
     width: 100%;
+    height: 37px;
+    margin-top: -34px;
     text-align: center;
-    background: rgba(114, 108, 79, 0.976);
-    bottom: 0;
+    background: linear-gradient(#bea78a, #978777);
 }
 footer div{
-    font-size: 0.5em;
+    font-size: 11px;
     border-top: 1px solid black;
+    height: 17px;
+}
+footer div:nth-child(2){
+    border-top: 1px solid rgb(49, 44, 44);
+    margin: 0 4px;
 }

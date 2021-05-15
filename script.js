@@ -30,20 +30,14 @@ var sec_passed;
 
 function fontChange(id){
     let font = ''
-    for (let i of ['#tnr','#hel','#csa']){
-        document.querySelector(i).classList.remove('selectedFont')
-    }
     if (id=='TNR'){
         font='Times New Roman'
-        document.querySelector('#tnr').classList.add('selectedFont')
     }
     else if (id=='Hel'){
         font='Helvetica'
-        document.querySelector('#hel').classList.add('selectedFont')
     }
     else if (id='CSa'){
         font="Comic Sans MS"
-        document.querySelector('#csa').classList.add('selectedFont')
     }
     document.querySelector('body').style.fontFamily=font
 }
@@ -66,9 +60,11 @@ function reset(){
     label = [];
     last_record=0;
     input.value = ''
+    input.style.background = 'white'
+    input.focus()
     document.querySelector('#results').style.display = 'none';
     document.querySelector('#time').innerHTML = "00:00"
-    input.focus()
+    document.querySelector('#nwords').value = tot_words
     last_record = 0;
     sec_passed = 1;
 }
@@ -125,6 +121,10 @@ function chartWPM(wpmr, wpm){
                 intersect: false,
             },
             plugins: {
+                title:{
+                    display: true,
+                    text: 'TEST SUMMARY',
+                },
                 tooltip: {
                     mode: 'index',
                     intersect: false,
