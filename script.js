@@ -28,6 +28,11 @@ var last_record;
 var timer;
 var sec_passed;
 
+// colors
+const GREEN = "var(--green)";
+const RED = "var(--red)";
+const WHITE = "var(--white-background)";
+
 function fontChange(id){
     let font = ''
     if (id=='TNR'){
@@ -59,12 +64,12 @@ function reset(){
     wpmr = [];
     label = [];
     last_record=0;
-    input.value = ''
-    input.style.background = 'white'
-    input.focus()
+    input.value = '';
+    input.style.background = WHITE;
+    input.focus();
     document.querySelector('#results').style.display = 'none';
-    document.querySelector('#time').innerHTML = "00:00"
-    document.querySelector('#nwords').value = tot_words
+    document.querySelector('#time').innerHTML = "00:00";
+    document.querySelector('#nwords').value = tot_words;
     last_record = 0;
     sec_passed = 1;
 }
@@ -151,7 +156,7 @@ function colorize(written) {
         }
     }
     let white_half = text.join` `.substr(written.length)
-    doc.innerHTML = `<span style=color:${'green'};>${green_half}</span><span style=background:red;>${red_half}</span>${white_half}`
+    doc.innerHTML = `<span style=color:${GREEN};>${green_half}</span><span style=background:${RED};>${red_half}</span>${white_half}`
 }
 
 function startTimer(){
@@ -187,10 +192,10 @@ function writing(){
             wpmr.push(parseFloat(60/(deltaTime-(last_record||starting))).toFixed(2))
             last_record = deltaTime
         }
-        input.style.background = 'white';
+        input.style.background = WHITE;
     }
     else {
-        input.style.background = '#d30';
+        input.style.background = RED;
     }
     if (total_written.join``==paragraph){
         endTimer()

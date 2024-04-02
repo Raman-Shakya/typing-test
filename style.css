@@ -2,7 +2,19 @@
     margin:0;
     font-size: 1.2rem;
 }
-body{overflow-x: hidden;}
+:root {
+    --background-color: #333;
+    --heading-text-color: #aaa;
+    --container-background: #555;
+    --white-background: #aaa;
+    --green: rgb(127, 167, 33);
+    --red: rgb(164, 51, 51);
+}
+
+body{
+    overflow-x: hidden;
+    background: var(--background-color);
+}
 #inswrapper{
     display: block;
     width: 80%;
@@ -10,7 +22,7 @@ body{overflow-x: hidden;}
     padding-bottom: 50px;
 }
 p{
-    background: #cbaf95;
+    background: var(--container-background);
 }
 #inputarea, p, button{
     display: block;
@@ -22,14 +34,19 @@ p{
     border-radius: 10px;
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;    
-    box-sizing: border-box;      
+    box-sizing: border-box;
 }
+#inputarea {
+    background: var(--white-background);
+}
+
 #inswrapper button{
     margin-bottom: 10px;
     width: 75px;
     padding: 5px;
     font-size: 0.7em;
     float: right;
+    background: var(--white-background);
 }
 #inuputarea:focus{
     border:none;
@@ -47,6 +64,9 @@ canvas{
     display: none;
     margin: 70px auto;
     width: 80%;
+    background: var(--white-background);
+    padding: 20px;
+    border-radius: 1em;
 }
 #nonchart{
     margin-top: 20px;
@@ -62,18 +82,24 @@ canvas{
     font-size: 0.6em;
     font-weight: bold;
 }
-nav{
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     width: 100%;
-    height: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    background: var(--container-background);
+    color: var(--heading-text-color);
+    height: 70px;
+    border-bottom: 1px solid black;
 }
-nav #bars{
-    position: absolute;
+nav #bars {
+    /* position: absolute; */
     z-index: 2;
     width: 30px;
-    top: 5px;
-    right: 20px;
+    /* top: 5px; */
+    /* right: 20px; */
     float: right;
     cursor: pointer;
     transition: 1s;
@@ -82,10 +108,8 @@ nav h2{
     display: block;
     position: relative;
     z-index: 1;
-    background: linear-gradient(#dcc,#ba9);
-    height: 50px;
-    padding: 10px 20px;
-    border-bottom: 1px solid black;
+    margin-left: 20px;
+    /* background: linear-gradient(#dcc,#ba9); */
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box;    
     box-sizing: border-box; 
@@ -107,9 +131,12 @@ nav h2{
     width: 100%;
     display: flex;
     text-align: center;
-    background: linear-gradient(#eee, #eed);
+    /* background: linear-gradient(#eee, #eed); */
+    background: var(--white-background);
     transform: perspective(10em) rotateX(90deg);
-    margin-top: -70px;
+    color: var(--background-color);
+    top: 70px;
+    /* margin-top: -70px; */
     transition: 1s;
     padding: 10px;
     -webkit-box-sizing: border-box; 
@@ -183,7 +210,9 @@ footer{
     height: 37px;
     margin-top: -34px;
     text-align: center;
-    background: linear-gradient(#bea78a, #978777);
+    /* background: linear-gradient(#bea78a, #978777); */
+    background: var(--container-background);
+    color: var(--heading-text-color);
 }
 footer div{
     font-size: 11px;
